@@ -1,17 +1,23 @@
 import random
 
-words = [
-"python",
-"programa",
-"variable",
-"funcion",
-"bucle",
-"cadena",
-"entero",
-"lista",
-]
+categorias = {
+    "Programación": ["python", "variable", "función", "bucle"],
+    "Tipos de Datos": ["entero", "float", "bool", "complex"],
+    "Países": ["Argentina", "francia", "brasil", "canada"]
+}
 
-word = random.choice(words)
+#Mostrar categorias
+print("Categorías disponibles: ")
+for categoría in categorias:
+    print("-", categoría)
+
+#Elige y valida categoria
+eleccion = input("Elegí una categoria: ")
+while eleccion not in categorias:
+    eleccion = input("Categoría inválida, elige otra: ")
+
+word = random.choice(categorias[eleccion]).lower()
+
 guessed = []
 attempts = 6
 
@@ -38,7 +44,7 @@ while attempts > 0:
     print(f"Intentos restantes: {attempts}")
     print(f"Letras usadas: {', '.join(guessed)}")
     
-    letter = input("Ingresá una letra: ")
+    letter = input("Ingresá una letra: ").lower()
 
     #Verifica que el usario no ingrese más de una letra, un número o carárcter inválido
     if len(letter) != 1 or not letter.isalpha():
