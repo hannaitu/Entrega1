@@ -1,2 +1,2 @@
-# Entrega1
-Primera entrega python
+Hanna Magalí Iturralde
+Legajo: 26933/0
